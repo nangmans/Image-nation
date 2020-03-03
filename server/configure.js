@@ -7,6 +7,7 @@ var path = require('path'),
     morgan = require('morgan'), //connect 미들웨어의 로깅을 담당하는 모듈
     methodOverride = require('method-override'), //connect의 http메소드 흉내 모듈
     errorHandler = require('errorhandler'); //connect의 에러 처리 모듈
+    moment = require('moment');
 
 module.exports = function(app) {
     app.use(morgan('dev'));
@@ -27,11 +28,16 @@ module.exports = function(app) {
     app.engine('handlebars', exphbs.create({
         defaultLayout: 'main',
         layoutsDir: app.get('views') + '/layouts',
-        partialsDir: [app.get('views') + '/partials']
-    }).engine);
-    app.set('veiw engine', 'handlebars'); /* engine 함수를 사용해 렌더링 엔진을 정의함
+        partialsDir: [app.get('views') + '/partials'],
+        helpers: {
+            timeago: function(timestamp) {
+                return moment(timestamp).startOf('minute').fromNow();
+            }
+        }
+    }).engine); /* engine 함수를 사용해 렌더링 엔진을 정의함
     engine함수의 첫번째 객체는 엔진이 찾아야 하는 파일의 확장자, 두번째 인자는 create함수를 사용해 
     렌더링 엔진을 구성한다. */
+    app.set('view engine', 'handlebars'); 
 
     return app;
     
