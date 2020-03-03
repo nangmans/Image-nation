@@ -1,21 +1,22 @@
 var express= require('express'),
-// config = require('./server/configure'),
+config = require('./server/configure'),
 app = express();
 
 //express 모듈을 선언하고 app 변수에 express를 선언한다
 
 app.set('port', process.env.PORT || 3300);
 app.set('views', __dirname+'/views');
-//app = config(app);
+app = config(app);
 
 /*app에 port값 설정, process.env.PORT는 장비의 기본 포트, 설정되어 있지 않다면
 3300 포트를 설정한다.
 views의 위치를 __dirname(현재 디렉토리)+/views로 설정한다 */
 
-app.get('/', function(req,res) {
+/* app.get('/', function(req,res) {
     res.send('Hello world');
-});
-app.listen(app.get('port'), function() {
+}); */
+
+var server = app.listen(app.get('port'), function() {
     console.log('Server up: http://localhost:'+app.get('port'));
 });
 
