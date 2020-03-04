@@ -6,14 +6,14 @@ var path = require('path'),
     cookieParser = require('cookie-parser'), //connect의 쿠키 담당 모듈
     morgan = require('morgan'), //connect 미들웨어의 로깅을 담당하는 모듈
     methodOverride = require('method-override'), //connect의 http메소드 흉내 모듈
-    errorHandler = require('errorhandler'); //connect의 에러 처리 모듈
-    moment = require('moment');
+    errorHandler = require('errorhandler'), //connect의 에러 처리 모듈
+    moment = require('moment'),
+    multer = require('multer');
 
-module.exports = function(app) {
+    module.exports = function(app) {
     app.use(morgan('dev'));
-    app.use(bodyParser({
-        uploadDir:path.join(__dirname, 'public/upload/temp')
-    }));
+    app.use(multer({ dest: path.join(__dirname,
+                    'public/upload/temp')}).any);
     app.use(methodOverride());
     app.use(cookieParser('some-secret-value-here'));
     routes(app); //경로들을 routes 파일로 이동, 서버에서 라우터를 사용 가능하게 해줌
