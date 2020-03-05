@@ -8,19 +8,23 @@ var path = require('path'),
     methodOverride = require('method-override'), //connect의 http메소드 흉내 모듈
     errorHandler = require('errorhandler'), //connect의 에러 처리 모듈
     moment = require('moment'),
+    path = require('path'),
     multer = require('multer');
+    
 
-    module.exports = function(app) {
+module.exports = function(app) {
+    app.use(multer({dest : path.join(__dirname,
+                   '../public/upload/temp')}).any());
+    /* public이 아니라 ../public이여야 원하는 경로에 저장 가능, 상대 경로에서 ../는 상위
+    디렉토리를 지정, public으로 하면 configure가 존재하는 폴더에서 이동해버림 */
     app.use(morgan('dev'));
-    app.use(multer({ dest: path.join(__dirname,
-                    'public/upload/temp')}).any);
     app.use(methodOverride());
     app.use(cookieParser('some-secret-value-here'));
     routes(app); //경로들을 routes 파일로 이동, 서버에서 라우터를 사용 가능하게 해줌
     app.use('/public/', express.static(path.join(__dirname,'../public'))); /* express.static은 미리 정의된
     디렉토리의 정적 자원을 브라우저에 그려야 할 때 사용한다. 여기서는 public 내에 있는 파일을 제공하게 해준다 
     app.router() 뒤에 정의해야 한다 */
-
+    
     if ('development' === app.get('env')) {
         app.use(errorHandler());
     }
