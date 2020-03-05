@@ -1,7 +1,7 @@
 var md5 = require('crypto-js/md5'),
     fs = require('fs'),
-    path = require('path');
-    
+    path = require('path'),
+    sidebar = require('../helpers/sidebar');
 module.exports = {
     index: function(req,res) {
         
@@ -20,7 +20,7 @@ module.exports = {
                   image_id: 1,
                   email: 'test@testing.com',
                   name: 'Test Tester',
-                  gravatar: md5("test@testing.com").toString(),
+                  gravatar: md5('test@testing.com').toString(),
                   comment: 'This is a test comment..',
                   timestamp: Date.now()
               }, {
@@ -34,7 +34,11 @@ module.exports = {
           ]    
       };
 
-      res.render('image',viewModel);
+      sidebar(viewModel, function(viewModel){ 
+        res.render('image', viewModel); 
+       }); 
+       /* sidebar가 viewmodel을 실행하기 전에 res.render가 하는 기능(html을 렌더링)을 콜백함수로 지연시키고 있음
+          콜백함수로 지연시키지 않으면 sidebar가 작업을 끝내기 전에 res.render가 실행되어 버린다 */
     
     },
     create: function(req,res) {
@@ -71,7 +75,7 @@ module.exports = {
         saveImage();
     },
     like: function(req,res) {
-        res.send('The image:like POST controller');
+        res.json({likes: 1});
     },
     comment: function(req,res) {
         res.send('The image:comment POST controller');
