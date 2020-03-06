@@ -19,6 +19,7 @@ module.exports = function(app) {
     디렉토리를 지정, public으로 하면 configure가 존재하는 폴더에서 이동해버림 */
     app.use(morgan('dev'));
     app.use(methodOverride());
+    app.use(bodyParser()); //bodypaser는 route 위에 있어야 한다.
     app.use(cookieParser('some-secret-value-here'));
     routes(app); //경로들을 routes 파일로 이동, 서버에서 라우터를 사용 가능하게 해줌
     app.use('/public/', express.static(path.join(__dirname,'../public'))); /* express.static은 미리 정의된

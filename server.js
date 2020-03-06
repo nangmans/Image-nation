@@ -1,12 +1,17 @@
 var express= require('express'),
 config = require('./server/configure'),
-app = express();
+app = express(),
+mongoose = require('mongoose');
 
 //express 모듈을 선언하고 app 변수에 express를 선언한다
 
 app.set('port', process.env.PORT || 3300);
 app.set('views', __dirname+'/views');
 app = config(app);
+mongoose.connect('mongodb://localhost/imgPloadr'); //Mongoose에 사이트 Url 연결
+mongoose.connection.on('open',function(){ //연결시 로그를 띄우는 콜백 함수
+    console.log('Mongoose connected.');
+});
 
 /*app에 port값 설정, process.env.PORT는 장비의 기본 포트, 설정되어 있지 않다면
 3300 포트를 설정한다.
