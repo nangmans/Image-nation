@@ -2,15 +2,18 @@
     <h3 class="card-header">        
             Most Popular
     </h3>
+    
     <div class="card-body">
+        <div class="row">
         {{#each sidebar.popular}}
             <div class="col-md-4 text-center"
              style="padding-bottom: .5em;">
                <a href="/images/{{uniqueId}}"><img
-                src="public/upload/{{filename}}"
-                 style="width: 5px; height: 5px;"
+                src="/public/upload/{{filename}}"
+                 style="width: 5em; height: 5em;"
                  class="img-thumbnail"></a>
-            </div>
+            </div>       
         {{/each}}
+        </div>
     </div>
 </div>

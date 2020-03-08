@@ -6,7 +6,6 @@ var md5 = require('crypto-js/md5'),
 
 module.exports = {
     index: function(req,res) {
-        
       var viewModel = {
         image: {},
         comments: []    
@@ -58,7 +57,7 @@ module.exports = {
                     targetPath = path.resolve('./public/upload/' + imgUrl + ext);
                       /* multer는 req.files에 파일정보를 key,value형식으로 array에 저장,
                         file의 path에 접근하기 위해 배열의 0번 값(file)의 path key에 접근한다. */
-                 if (ext === '.png' || ext === '.jpg' || ext === '.gif') {
+                 if (ext === '.png' || ext === '.jpg' || ext === '.gif' || ext === '.jpeg') {
                         fs.rename(tempPath, targetPath, function(err) {
                             if (err) throw err;
 
@@ -77,7 +76,7 @@ module.exports = {
                              fs.unlink(tempPath, (err) => {
                                 if (err) throw err;
                 
-                                res.json(500, 'error: 이미지 형식의 파일만 업로드 할 수 있습니다.');
+                                res.status(500).json('error: 이미지 형식의 파일만 업로드 할 수 있습니다.');
                              });
                         }          
                         /* png,jpg,gif 형식의 파일일 겨우 파일을 temp에서 upload 폴더로
@@ -124,6 +123,29 @@ module.exports = {
                 res.redirect('/');
             }
         });       
+    },
+    remove: function(req,res) {
+        Models.Image.findOne({ filename : {$regex: req.params.image_id }}, //삭제하려는 이미지 검색 수행
+            function(err, image) {
+                if (err) {throw err;}
+
+                fs.unlink(path.resolve('./public/upload/' + image.filename), //연관된 이미지 삭제
+                function(err) {
+                    if (err) {throw err;}
+
+                    Models.Comment.remove( {image_id : image._id}, //이미지에 달린 댓글 삭제
+                    function(err) {
+                        image.remove(function(err) { //이미지 자체 삭제
+                            if (!err) {
+                                res.json(true); //삭제가 정상적으로 완료되면 true값을 josn응답으로 보낸다
+                            } else {
+                                res.json(false);
+                            }
+                        });
+                    });
+                });
+            });
+
     }
 };
 

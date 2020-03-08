@@ -17,7 +17,31 @@ $(function () {
     });
 });
 
-/*Jquery는 $() 랩퍼를 사용해 익명 함수를 실행한다.
+$(function () {
+    $('#btn-delete').on('click', function(event) {
+        event.preventDefault();
+        var $this = $(this);
+
+        var remove = confirm('정말 이미지를 삭제하시겠습니까?');
+        
+        if(remove) {
+            var imgId = $(this).data('id');
+            $.ajax({
+                url: '/images/' + imgId,
+                type: 'DELETE'
+            }).done(function(result) {
+                if(result) {
+                    $this.removeClass('btn btn-danger').addClass('btn btn-success');
+                    $this.find('i').removeClass("fafa-times").addClass("fa-check");
+                    $this.append('<span>Deleted!</span>');
+                }
+            });
+        }  
+});
+
+});
+
+/* Jquery는 $() 랩퍼를 사용해 익명 함수를 실행한다.
  $(document).ready의 약자, 위 코드는 페이지가 로드될 때까지 기다리다가
  콜백 함수가 실행된다는 뜻이다. 로딩 중일 때 존재하지 않는 DOM 요소에 영향을
  주는 것을 방지하기 위함 */ 
