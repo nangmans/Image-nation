@@ -1,20 +1,21 @@
-<div class="card">
+
+<div class="card border-dark" id="anchor">
     <h3 class="card-header">
         {{ image.title }}
     </h3>
     <div class="card-body">
-        <p>{{ image.description }}</p>
         <div class="col-md-12 text-center">
             <img src="/public/upload/{{ image.filename }}"
-             class="img-thumbnail">
+             class="img-fluid">
         </div>
+        <p>{{ image.description }}</p>
     </div>
     <div class="card-footer">
         <div class="row">
             <div class="col-md-8">
                 <button class="btn btn-success" id="btn-like"
-                 data-id="{{ image.uniqueId }}"><i class=
-                 "fa fa-heart">   Like</i></button>
+                 data-id="{{ image.uniqueId }}"><i class="fas fa-heart">
+                 </i></button>
                  <strong class="likes-count"> {{ image.likes }}
                  </strong> &nbsp; - &nbsp; <i class="fa fa-eye">
                  </i> <strong>{{ image.views }}</strong>
@@ -23,62 +24,54 @@
             </div>
             <div class="col-md-4 text-right">
                 <button class="btn btn-danger" id="btn-delete"
-                 data-id="{{ image.uniqueId }}"><span>Delete</span>
-                    <i class="fafa-times"></i> 
+                 data-id="{{ image.uniqueId }}"><span>Delete  </span>
+                    <i class="fas fa-times"></i> 
                 </button>
             </div>
         </div>
     </div>
 </div>
-<div class="card">
+</br></br>
+<div class="card border-dark">
     <div class="card-header">
         <dic class="row">
             <div class="col-md-8">
-                <strong class="card-title">Comments</strong>
+                <strong class="card-title"><h3>Comments</h3></strong>
             </div>
             <div class="col-md-4 text-right">
-                <button class="btn btn-primary btn-sm" id="btn-comment"
+                <button class="btn btn-primary btn" id="btn-comment"
                  data-id="{{ image.uniqueId }}">
-                 <i class="fa fa-comment-o"> Post
-                 Comment...</i></button>
+                 <span>Post Comment  </span><i class="fas fa-comments"></i></button>
             </div>
         </dic>
     </div>
     <div class="card-body">
         <blockquote id="post-comment">
-            <div class="row">
+            <div class=" form-group">
                 <form method="post" action="/images/{{
                  image.uniqueId }}/comment">
-                    <div class="form-group col-sm-12">
-                        <label class="col-sm-4 col-form-label"
-                         for="name">Name:</label>
-                         <div class="col-sm-12">
-                             <input class="form-control"
-                              type="text" name="name">
-                         </div>
+                    <label class="col-sm-4 col-form-label"
+                    for="name">Name:</label>
+                    <div class="col-sm-2">
+                        <input class="form-control-plaintext"
+                        type="text" name="name">
                     </div>
-                    <div class="form-group col-sm-12">
-                        <label class="col-sm-4 col-control-label"
-                         for="email">Email:</label>
-                         <div class="col-sm-12">
-                             <input class="form-control"
-                              type="text" name="email">
-                         </div>
+                    <label class="col-sm-4 col-form-label"
+                    for="name">Email:</label>
+                    <div class="col-sm-6">
+                        <input class="form-control-plaintext"
+                        type="text" name="email">
                     </div>
-                    <div class="form-group col-sm-12">
-                        <label class="col-sm-6 col-control-label"
-                         for="comment">Comment:</label>
-                         <div class="col-sm-12">
-                             <textarea class="form-control"
-                              name="comment" row="2"></textarea>
-                         </div>
-                    </div>
-                    <div class="form-group col-sm-12">
+                    <label class="col-sm-6 col-control-label"
+                        for="comment">Comment:</label>
+                        <div class="col-sm-6">
+                        <textarea class="form-control"
+                        name="comment" row="2"></textarea>
+                        </br>
                         <div class="col-sm-12 text-right">
                             <button type="submit" id="comment-btn"
                              class="btn btn-success" type="button">
-                             <i class="fa fa-comment"></i>
-                             Post</button>
+                             Post<i class="fa fa-comment"></i></button>
                         </div>
                     </div>
                 </form>
@@ -86,13 +79,13 @@
         </blockquote>
         <ul class="media-list">
             {{#each comments}}
-            <li class="media">
+            <li class="media mb-3">
                 <a class="float-left" href="#">
-                    <img class="media-object rounded-circle" class="mr-3"
+                    <img class="media rounded-circle mr-3"
                      src="https://www.gravatar.com/avatar/{{gravatar}}?d=retro&s=45"></a>
                 <div class="media-body">
-                    {{ comment }}<br>
-                    <strong class="media-heading">{{ name
+                    {{ name }}<br>
+                    <strong class="text">{{ comment
                      }}</strong> <small class="text-muted">{{
                          timeago timestamp }}</small>   
                 </div>

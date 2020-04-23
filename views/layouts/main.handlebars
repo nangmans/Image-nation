@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="frr" />
+        <meta name="author" content="grr" />
         <title>ImageWeb.com</title>
+        <link rel="icon" type="image/x-icon" href="../../public/img/favicon.ico" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
-        rel="stylesheet">
+        rel="stylesheet">      
+        <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>      
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css"
-         href="/public/css/style.css">
+         href="/public/css/styles.css">
     </head>
     <body>
-        <div class="page-header">
-            <div class="container">
+    <header class="masthead">
+            <div class="container-fluid">
+                <div class="masthead-subheading">Experience fresh images! </div>
+                <div class="masthead-heading">Show your Imagination, Share your Fashion</div>
+                <div class="masthead-heading">with</div><div class="masthead-heading text-uppercase"> Image-Nation </div>
+                </br></br></br>            
+                <a class="btn btn-success btn-xl text-uppercase js-scroll-trigger" href="#upload">Upload Image</a>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#view">Enjoy Images</a>
+            </div>
+    </header>
+    </br></br></br></br>
+        <div class="page-header" id="upload">
+            <div class="container-fluid">
                 <div class="col-md-6">
-                    <h1><a href="/">ImageWeb.com</a></h1>
+                    <h1><a href="/"><img src = "../../public/img/favicon.jpg"> Image-Nation</a></h1>
                 </div>
             </div>
         </div>
-        <div class="container">
+        </br></br></br></br>
+        <div class="container-fluid" >
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-8" >
                     {{{ body }}}
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4" >
                     {{> stats this }}
+                    </br>
                     {{> popular this }}
-                    {{> comments this }}
+                    </br>
+                    {{> comments this }}                    
                 </div>
-            </div>
+            </div >        
+             <div id="view"></div>
         </div>
-        <div style="border-top: solid 1px #eee; padding-top: 1em;">
-            <div class="container">
+        <div style="border-top: solid 1px #eee; padding-top: 1em;" >
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">ImageWeb.com |
+                        <p class="text-muted">Image-Nation |
                             &copy; Copyright 2020, All Rights
-                            Reserved</p>
-                        <p class="text-center">
-                            <i class="fa fa-twitter-square fa-2x
-                             text-primary"></i>
-                            <i class="fa fa-facebook-square fa-2x
-                             text-primary"></i>
-                        </p>
+                            Reserved </p>
+                            <p>Contact Me : kallusis369@gmail.com</p
                     </div>
                 </div>
             </div>
@@ -49,6 +68,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script type="text/javascript"
          src="/public/js/scripts.js"></script>
     </body>

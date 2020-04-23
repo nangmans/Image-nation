@@ -8,12 +8,7 @@ module.exports = {
         var viewModel = {
             images: []
         };
-        /* 모든 Comments 삭제 CommentModel.remove({}, {}, function(err){
-            if (err) {throw err;}
-        }); */
-        /* 모든 Images 삭제 ImageModel.remove({}, {}, function(err){
-            if (err) {throw err;}
-        }); */
+      
         ImageModel.find({}, {}, {sort: { timestamp: -1 }}, //ImageModel 객체의 find 실행, 현재는 모든 image들을 나타낸다
         function(err, images) { //첫번째 인자는 filter, 두번째는 projection, 세번째는 option
             if (err) { throw err;} /*네번째 인자는 callback으로 viewmodel의 images에 

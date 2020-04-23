@@ -1,3 +1,13 @@
+$(document).ready(function () {
+    $('html, body').animate({
+    scrollTop: $('#anchor').offset().top -72,
+    },
+    1000,
+     'easeInOutExpo');
+    });
+
+    
+
 $(function () {
     $('#post-comment').hide(); //post-comment ID를 가진 div 태그의 hide 함수 실행
     $('#btn-comment').on('click', function(event){ //btn-comment ID의 버튼에 이벤트 핸들러 등록
@@ -22,7 +32,7 @@ $(function () {
         event.preventDefault();
         var $this = $(this);
 
-        var remove = confirm('정말 이미지를 삭제하시겠습니까?');
+        var remove = confirm('Are you sure to delete Image?');
         
         if(remove) {
             var imgId = $(this).data('id');
@@ -31,9 +41,8 @@ $(function () {
                 type: 'DELETE'
             }).done(function(result) {
                 if(result) {
-                    $this.removeClass('btn btn-danger').addClass('btn btn-success');
-                    $this.find('i').removeClass("fafa-times").addClass("fa-check");
-                    $this.append('<span>Deleted!</span>');
+                    alert('Image Delete!')
+                    window.location = '/'
                 }
             });
         }  
@@ -45,3 +54,60 @@ $(function () {
  $(document).ready의 약자, 위 코드는 페이지가 로드될 때까지 기다리다가
  콜백 함수가 실행된다는 뜻이다. 로딩 중일 때 존재하지 않는 DOM 요소에 영향을
  주는 것을 방지하기 위함 */ 
+
+ /*!
+    * Start Bootstrap - Agency v6.0.0 (https://startbootstrap.com/template-overviews/agency)
+    * Copyright 2013-2020 Start Bootstrap
+    * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-agency/blob/master/LICENSE)
+    */
+   (function ($) {
+    "use strict"; // Start of use strict
+
+    // Smooth scrolling using jQuery easing
+    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+        if (
+            location.pathname.replace(/^\//, "") ==
+                this.pathname.replace(/^\//, "") &&
+            location.hostname == this.hostname
+        ) {
+            var target = $(this.hash);
+            target = target.length
+                ? target
+                : $("[name=" + this.hash.slice(1) + "]");
+            if (target.length) {
+                $("html, body").animate(
+                    {
+                        scrollTop: target.offset().top - 72,
+                    },
+                    1000,
+                    "easeInOutExpo"
+                );
+                return false;
+            }
+        }
+    });
+
+    // Closes responsive menu when a scroll trigger link is clicked
+    $(".js-scroll-trigger").click(function () {
+        $(".navbar-collapse").collapse("hide");
+    });
+
+    // Activate scrollspy to add active class to navbar items on scroll
+    $("body").scrollspy({
+        target: "#mainNav",
+        offset: 74,
+    });
+
+    // Collapse Navbar
+    var navbarCollapse = function () {
+        if ($("#mainNav").offset().top > 100) {
+            $("#mainNav").addClass("navbar-shrink");
+        } else {
+            $("#mainNav").removeClass("navbar-shrink");
+        }
+    };
+    // Collapse now if page is not at top
+    navbarCollapse();
+    // Collapse the navbar when page is scrolled
+    $(window).scroll(navbarCollapse);
+})(jQuery); // End of use strict

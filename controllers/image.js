@@ -79,7 +79,7 @@ module.exports = {
                                 res.status(500).json('error: 이미지 형식의 파일만 업로드 할 수 있습니다.');
                              });
                         }          
-                        /* png,jpg,gif 형식의 파일일 겨우 파일을 temp에서 upload 폴더로
+                        /* png,jpg,gif 형식의 파일일 경우 파일을 temp에서 upload 폴더로
                             6자리 숫자와 확장자를 붙여 저장한다. 그리고 /images/+이미지 이름으로
                             리다이렉트한다 */
                  }
