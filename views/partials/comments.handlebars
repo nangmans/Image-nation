@@ -5,15 +5,16 @@
     <div class="card-body">
         <ul class="media-list">
             {{#each sidebar.comments}}
-            <li class="media">
-                <a class="float-left" href="/images/{{ image.uniqueId }}">
-                </a>
+            <li class="media mb-3">
+                <a class="float-left" href="#">
+                    <img class="media rounded-circle mr-3"
+                     src="https://www.gravatar.com/avatar/{{gravatar}}?d=retro&s=45"></a>
                 <div class="media-body">
-                    {{comment}}<br/>
-                    <strong class="media-heading">
-                        {{name}}</strong> <small class="text-muted">
-                        {{timeago timestamp }}</small>
-                    </div>
+                    {{ name }}<br>
+                    <strong class="text">{{ comment
+                     }}</strong> <small class="text-muted">{{
+                         timeago timestamp }}</small>   
+                </div>
             </li>
             {{/each}}
             </li>
