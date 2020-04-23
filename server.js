@@ -8,10 +8,11 @@ mongoose = require('mongoose');
 app.set('port', process.env.PORT || 3300);
 app.set('views', __dirname+'/views');
 app = config(app);
-mongoose.connect('mongodb+srv://dbUser:s01117770@cluster0-ayuch.mongodb.net/test?retryWrites=true&w=majority'); //Mongoose에 사이트 Url 연결
+mongoose.connect('mongodb+srv://dbUser:s01117770@cluster0-ayuch.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser: true,useUnifiedTopology: true  }); //Mongoose에 사이트 Url 연결
 mongoose.connection.on('open',function(){ //연결시 로그를 띄우는 콜백 함수
     console.log('Mongoose connected.');
 });
+
 
 /*app에 port값 설정, process.env.PORT는 장비의 기본 포트, 설정되어 있지 않다면
 3300 포트를 설정한다.

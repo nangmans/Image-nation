@@ -4,10 +4,10 @@ var models = require('../models'),
 module.exports = function(callback) {
     async.parallel([
         function(next) {
-            models.Image.count({},next); //Image 컬렉션의 도큐먼트 개수를 세서(count) next콜백으로 넘겨준다
+            models.Image.estimatedDocumentCount({},next); //Image 컬렉션의 도큐먼트 개수를 세서(count) next콜백으로 넘겨준다
         },
         function(next) {
-            models.Comment.count({},next); //위의 image 경우와 동일하다
+            models.Comment.estimatedDocumentCount({},next); //위의 image 경우와 동일하다
         },
         function(next) {
             models.Image.aggregate([{ $group: { //count는 도큐먼트의 개수만을 세기 때문에 views를 찾기 위해서는 aggregate를 사용해야 한다.
