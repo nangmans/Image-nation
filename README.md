@@ -1,4 +1,4 @@
-# [Image-nation](Image-nation)
+# [Image-nation](http://imageweb-env.eba-nj62rdxm.ap-northeast-2.elasticbeanstalk.com/)
 
 이미지를 통해 교류할 수 있는 Image-nation 입니다.
 누구나 이미지를 자유롭게 업로드할 수 있는 웹 애플리케이션입니다.      
@@ -20,49 +20,32 @@ Database 환경 : MongoDB(Mongoose)
 
 ## 사용 예제
 
-Main Page
+<h2>Main Page</h2>
 
-<img src = "https://github.com/nangmans/ImageWeb/blob/master/ImageWeb.com%20Preview2.png">
+<img src = "https://github.com/nangmans/Image-nation/blob/master/Image-nation%20Preview2.png?raw=true">
 
-Main Page에서 Daeran.net에 올라온 글들을 최신 순으로 볼 수 있습니다. 우측 상단의 회원 가입으로 글쓰기, 댓글쓰기를 할 수 있습니다.
+Main Page에서 이미지 업로드와 최신 이미지, 종합적인 stat들을 한번에 볼 수 있습니다.
 
-Introduce Page
+<h2>Image Page</h2>
 
-![img1 daumcdn](https://user-images.githubusercontent.com/45918816/78887628-2b1c0e80-7a9b-11ea-8d03-072c692ab2dd.png)
+<img src = "https://github.com/nangmans/Image-nation/blob/master/Image-nation%20Preview.png?raw=true">
 
+Image Page에서 이미지의 제목과 내용을 볼 수 있습니다 그리고 댓글과 좋아요를 통해 자신을 표현할 수 있습니다.
 
-'소개' 단에서 간단한 웹 사이트의 소개와 함께 회원가입, 자유게시판, 공지사항으로 간단히 갈 수 있습니다.
+<h2>Carousel</h2>
 
-Hotdeal Page
+<img src = "https://github.com/nangmans/Image-nation/blob/master/Image-nation%20Preview3.png?raw=true">
 
-![img1 daumcdn](https://user-images.githubusercontent.com/45918816/78887654-32431c80-7a9b-11ea-9700-ecce8264d3ea.png)
+Image-nation에 올라온 이미지들을 회전하는 Carousel로 보여줍니다.
 
-대란게시판을 통해서 각 사이트에서 가져온 대란 글들을 볼 수 있습니다.
-
-Freeboard Page
-
-![img1 daumcdn](https://user-images.githubusercontent.com/45918816/78887667-3838fd80-7a9b-11ea-80ad-f8042bbd4b6e.png)
-
-자유게시판에서 자유롭게 글을 쓸 수 있습니다.
-
-Register Page
-
-![img1 daumcdn](https://user-images.githubusercontent.com/45918816/78887677-3ff8a200-7a9b-11ea-9776-83c99866479d.png)
-
-ID와 Password 등 간단한 정보로 회원가입을 할 수 있습니다.
-
-View Page
-
-![img1 daumcdn](https://user-images.githubusercontent.com/45918816/78887698-4dae2780-7a9b-11ea-87d6-0e500e1dcc9b.png)
-
-게시물을 클릭하면 게시물의 내용과 댓글을 작성할 수 있는 폼이 있습니다.(회원가입 시에만 등장)
 
 ## 업데이트 내역
 
 \* 0.1.0  
-\* 첫 배포
+\*첫 배포
+ 
 \* 0.1.1  
-\* UI 수정 및 의존성 최신화
+\*UI 수정 및 의존성 최신화
 
 
 ## 정보
@@ -70,30 +53,4 @@ View Page
 [kallusis369@gmail.com](mailto:kallusis369@gmail.com) 로 수정사항, 건의사항을 보내주세요
 
 
-# ImageWeb
 
-<img src = "https://github.com/nangmans/ImageWeb/blob/master/ImageWeb.com%20Preview2.png">
-<h2>ImageWeb.com 프로젝트</h2>
-누구나 이미지를 자유롭게 업로드하고 교류할 수 있는 웹 애플리케이션입니다.      
-
-이미지 형식의 확장자만 업로드 가능하며, 간단한 제목과 설명을 첨부할 수 있습니다.   
-
-좋아요와 댓글 기능을 통해 이미지에 의견을 남길 수 있습니다.   
-
-페이지의 사이드 바 메뉴를 통해 종합적인 스탯들을 확인할 수 있습니다.
-
-
-
-
-***
-<h2>사용 예제</h2>
-<img src = "https://github.com/nangmans/ImageWeb/blob/master/ImageWeb.com%20Preview.png">
-Likes 버튼을 눌러 이미지에 좋아요를 갱신할 수 있습니다.  
-
-Post Comment 버튼을 눌러 댓글 창을 활성화하면, 이름과 이메일, 댓글을 적어 댓글을 남길 수 있습니다.   
-
-
-
-***
-<h2>정보</h2>
-그 외 문의할 점, 개선사항, 버그 리포드 등은 kallusis369@gmail.com 로 보내주세요.
