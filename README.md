@@ -6,7 +6,7 @@
 좋아요와 댓글 기능을 통해 이미지에 의견을 남길 수 있습니다.   
 페이지의 사이드 바 메뉴를 통해 종합적인 스탯들을 확인할 수 있습니다.
 
-개발 Framework : Node.js v12.15.0
+개발 Framework : Express
 
 프로그래밍 언어 : JavaScript 
 
