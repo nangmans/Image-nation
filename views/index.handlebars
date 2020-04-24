@@ -1,45 +1,4 @@
-<div class="card border-dark">
-    <h3 class="card-header">      
-            Upload an Image      
-    </h3>
-    <div class="card-body">
-      <form class="form" method="post" action="/images" enctype="multipart/form-data">       
-            <div class="form-group col-md-12">
-             <label class="col-sm-2 control-label"
-              for="file">Browse:</label>
-                <div class="col-md-10">
-                <input class="form-control" type="file"
-                 name="file" id="file">
-                </div>
-            </div>
-        <div class="form-group col-md-12">
-            <label class="col-md-2 col-form-label"
-             for="title">Title:</label>
-             <div class="col-md-10">
-                 <input class="form-control" type="text"
-                  name="title">
-             </div>
-        </div>
-        <div class="form-group col-md-12">
-            <label class="col-md-2 col-form-label"
-             for="description">Description:</label>
-             <div class="col-md-10">
-                 <textarea class="form-control"
-                  name="description" rows="2"></textarea>
-             </div>
-        </div>
-            <div class="form-group col-md-12">
-                <div class="col-md-12 text-right">
-                    <button type="submit" id="login-btn"
-                     class="btn btn-success" type="button">
-                    <i class="fas fa-upload"></i>
-                    </i> Upload Image</button>
-                </div>
-            </div>
-    </form>
-    </div>
-</div>
-</br></br></br>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
       <div class="carousel-item active"><img src="../public/img/carousel-active.png"
@@ -60,7 +19,49 @@
   </a>
 </div>
 </br></br></br>
-<div class="card">
+<div class="card border-dark" id="upload">
+    <h3 class="card-header">      
+            Upload an Image      
+    </h3>
+    <div class="card-body">
+      <form class="form" method="post" action="/images" enctype="multipart/form-data" id="form">
+            <div class="form-group col-md-12">
+             <label class="col-sm-2 control-label"
+              for="file">Browse:</label>
+                <div class="col-md-10">
+                <input class="form-control" type="file"
+                 name="file" id="file">
+                </div>
+            </div>
+        <div class="form-group col-md-12">
+            <label class="col-md-2 col-form-label"
+             for="title">Title:</label>
+             <div class="col-md-10">
+                 <input class="form-control" type="text"
+                  name="title" id="title">
+             </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label class="col-md-2 col-form-label"
+             for="description">Description:</label>
+             <div class="col-md-10">
+                 <textarea class="form-control"
+                  name="description" rows="2" id="description"></textarea>
+             </div>
+        </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-12 text-right">
+                    <button type="submit" id="login-btn"
+                     class="btn btn-success" type="button">
+                    <i class="fas fa-upload"></i>
+                    </i> Upload Image</button>
+                </div>
+            </div>
+    </form>
+    </div>
+</div>
+</br></br></br>
+<div class="card" id="view">
     <h3 class="card-header">       
         Newest Images      
     </h3>

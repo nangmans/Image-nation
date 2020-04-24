@@ -68,7 +68,7 @@ module.exports = {
                             });
                             newImg.save(function(err, image) {
                                 
-                                res.redirect('/images/'+imgUrl);
+                                 res.redirect('/images/'+imgUrl);
                             });
                             }
                         );          
