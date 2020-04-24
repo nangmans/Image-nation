@@ -1,4 +1,4 @@
-# [Image-nation](http://imageweb-env.eba-nj62rdxm.ap-northeast-2.elasticbeanstalk.com/)
+# [Image-nation](http://imagenation.ap-northeast-2.elasticbeanstalk.com/)
 
 이미지를 통해 교류할 수 있는 Image-nation 입니다.
 누구나 이미지를 자유롭게 업로드할 수 있는 웹 애플리케이션입니다.      
